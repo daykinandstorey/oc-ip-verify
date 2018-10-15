@@ -1,0 +1,5 @@
+fields:
+    on:
+        label: Turn on
+        type: switch
+        comment: Switch on checking and verifying the user's IP address when logging in

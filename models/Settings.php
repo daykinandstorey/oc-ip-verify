@@ -1,15 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: peter
- * Date: 15/10/2018
- * Time: 11:28 AM
- */
 
 namespace Daykin\Ipverify\Models;
 
+use October\Rain\Database\Model;
 
-class Settings
+class Settings extends Model
 {
+    public $implement = ['System.Behaviors.SettingsModel'];
 
+    public $settingsCode = 'ip_verification';
+
+    public $settingsFields = 'fields.yaml';
 }

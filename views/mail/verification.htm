@@ -1,0 +1,13 @@
+subject = "Verify your login"
+layout = "system"
+description = "Email verification sent to users logging in from a new IP"
+==
+Hello {{ name }},
+
+A login from a new IP has been detected and requires your approval.
+
+If this was you please use the link below to verify the request.
+
+{% partial 'panel' body %}
+    <a href="{{ link }}">{{ link }}</a>
+{% endpartial %}
