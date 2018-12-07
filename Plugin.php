@@ -36,7 +36,8 @@ class Plugin extends PluginBase
                 'icon' => 'icon-lock',
                 'class' => '\Daykin\Ipverify\Models\Settings',
                 'order' => 100,
-                'keywords' => 'ip'
+                'keywords' => 'ip verification security login admin',
+                'permissions' => ['daykin.ipverify.access_settings']
             ]
         ];
     }
@@ -57,6 +58,8 @@ class Plugin extends PluginBase
             // Check to see if an optionally passed or the current IP address has been verified
             $user->addDynamicMethod('ipIsVerified', function ($ip = null) use ($user) {
                 $ip = $ip ?? request()->ip();
+
+                Event::fire('daykin.ipverify.beforeVerify', [$user, $ip]);
 
                 return !! $user->verifiedIps()->where('ip', '=', $ip)->whereNotNull('verified_at')->count();
             });
