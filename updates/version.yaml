@@ -1,3 +1,7 @@
 1.0.0:
     - 'Created table daykin_ipverify_user_ips'
     - create_daykin_ipverify_user_ips.php
+1.0.1:
+    - 'Fires an event before verification takes place'
+    - 'Registered plugin permission'
+    - 'Added new plugin keywords'
